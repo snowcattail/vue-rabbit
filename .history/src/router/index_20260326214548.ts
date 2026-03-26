@@ -13,7 +13,6 @@ const router = createRouter({
       // Home 页是首页下的二级路由，配置在首页路径下
       children: [
         {
-          // Home 页默认在首页显示，path 为空
           path: "",
           component: Home,
         },

@@ -8,10 +8,7 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li class="home" v-for="item in categoryList" :key="item.id">
-          <RouterLink to="/">{{ item.name }}</RouterLink>
-        </li>
-        <!-- <li>
+        <li>
           <RouterLink to="/">居家</RouterLink>
         </li>
         <li>
@@ -19,7 +16,7 @@
         </li>
         <li>
           <RouterLink to="/">服饰</RouterLink>
-        </li> -->
+        </li>
       </ul>
       <div class="search">
         <i class="iconfont icon-search"></i>

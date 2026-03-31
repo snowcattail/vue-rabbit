@@ -9,7 +9,7 @@
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li class="home" v-for="item in categoryList" :key="item.id">
-          <RouterLink to="/">{{ item.name }}</RouterLink>
+          <RouterLink to="/"></RouterLink>
         </li>
         <!-- <li>
           <RouterLink to="/">居家</RouterLink>

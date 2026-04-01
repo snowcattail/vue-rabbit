@@ -25,7 +25,6 @@
 import { useCategoryStore } from "@/stores/category";
 import { storeToRefs } from "pinia";
 const categoryStore = useCategoryStore();
-// storeToRefs，便于将解构赋值的对象转换为 ref 对象，不丢失响应式
 const { categoryList } = storeToRefs(categoryStore);
 </script>
 

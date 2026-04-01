@@ -8,7 +8,7 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li class="home" v-for="item in categoryList" :key="item.id">
+        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
@@ -23,10 +23,8 @@
 
 <script setup lang="ts">
 import { useCategoryStore } from "@/stores/category";
-import { storeToRefs } from "pinia";
+
 const categoryStore = useCategoryStore();
-// storeToRefs，便于将解构赋值的对象转换为 ref 对象，不丢失响应式
-const { categoryList } = storeToRefs(categoryStore);
 </script>
 
 <style scoped lang="scss">

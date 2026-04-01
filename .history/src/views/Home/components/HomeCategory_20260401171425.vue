@@ -1,10 +1,10 @@
 <template>
   <div class="home-category">
     <ul class="menu">
-      <li v-for="item in categoryList" :key="item.id">
+      <li v-for="item in categoryStore.categoryList" :key="item.id">
         <RouterLink to="/">{{ item.name }}</RouterLink>
         <RouterLink v-for="i in item.children.slice(0, 2)" :key="i" to="/">{{ i.name }}</RouterLink>
-        <!-- 弹层 layer 位置 -->
+        <!-- 弹层layer位置 -->
         <div class="layer">
           <h4>分类推荐 <small>根据您的购买或浏览记录推荐</small></h4>
           <ul>
@@ -27,10 +27,8 @@
 
 <script setup lang="ts">
 import { useCategoryStore } from "@/stores/category";
-import { storeToRefs } from "pinia";
 const categoryStore = useCategoryStore();
-// storeToRefs，便于将解构赋值的对象转换为 ref 对象，不丢失响应式
-const { categoryList } = storeToRefs(categoryStore);
+console.log(categoryStore);
 </script>
 
 <style scoped lang="scss">

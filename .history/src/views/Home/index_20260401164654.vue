@@ -3,9 +3,6 @@
     <HomeCategory />
     <HomeBanner />
   </div>
-  <HomeNew />
-  <HomeHot />
-  <HomeProduct />
 </template>
 
 <script setup lang="ts">

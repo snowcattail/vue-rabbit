@@ -22,7 +22,6 @@ import { onMounted } from "vue";
 // // 对象解构赋值
 // const categoryStore = useCategoryStore();
 // const { getCategory } = categoryStore;
-// 等价于
 const { getCategory } = useCategoryStore();
 // 实例被挂载后调用
 onMounted(() => {

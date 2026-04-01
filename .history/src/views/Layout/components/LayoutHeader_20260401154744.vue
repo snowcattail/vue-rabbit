@@ -8,9 +8,18 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+        <li class="home" v-for="item in categoryList" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
+        <!-- <li>
+          <RouterLink to="/">居家</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/">美食</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/">服饰</RouterLink>
+        </li> -->
       </ul>
       <div class="search">
         <i class="iconfont icon-search"></i>
@@ -22,8 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCategoryStore } from "@/stores/category";
-const categoryStore = useCategoryStore();
+import {} from "@/stores/category";
 </script>
 
 <style scoped lang="scss">

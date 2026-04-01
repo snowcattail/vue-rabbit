@@ -19,10 +19,9 @@ import LayoutFixed from "./components/LayoutFixed.vue";
 import { useCategoryStore } from "@/stores/category";
 import { onMounted } from "vue";
 
-const categoryStore = useCategoryStore();
+const categoryStroe = useCategoryStore();
 // 实例被挂载后调用
 onMounted(() => {
-  // 要拿到 categoryStore 里返回的 getCategory 函数
-  categoryStore.getCategory();
+  categoryStroe();
 });
 </script>

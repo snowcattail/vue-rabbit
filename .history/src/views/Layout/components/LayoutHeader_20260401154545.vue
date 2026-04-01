@@ -8,9 +8,18 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+        <li class="home" v-for="item in categoryList" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
+        <!-- <li>
+          <RouterLink to="/">居家</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/">美食</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/">服饰</RouterLink>
+        </li> -->
       </ul>
       <div class="search">
         <i class="iconfont icon-search"></i>
@@ -22,8 +31,20 @@
 </template>
 
 <script setup lang="ts">
-import { useCategoryStore } from "@/stores/category";
-const categoryStore = useCategoryStore();
+// // 导入方法
+// import { getCategoryAPI } from "@/apis/layout";
+// import { onMounted, ref } from "vue";
+// // 获取分类信息，将返回的数据存储到 categoryList 数组
+// const categoryList = ref([]);
+// const getCategory = async () => {
+//   const res = await getCategoryAPI();
+//   // console.log(res);
+//   categoryList.value = res.result;
+// };
+// // 实例被挂载后调用
+// onMounted(() => {
+//   getCategory();
+// });
 </script>
 
 <style scoped lang="scss">

@@ -25,5 +25,6 @@ import { onMounted } from "vue";
 // 等价于
 const { getCategory } = useCategoryStore();
 // 实例被挂载后调用
-onMounted(() => getCategory()); // 解构赋值，要拿到 categoryStore 里返回的 getCategory 函数
+// 解构赋值，要拿到 categoryStore 里返回的 getCategory 函数
+onMounted(() => getCategory());
 </script>

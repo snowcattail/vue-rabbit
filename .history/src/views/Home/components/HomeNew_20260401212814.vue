@@ -1,18 +1,16 @@
 <template>
-  <!-- 在标签上写属性，相当于传递 props 参数 -->
-  <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质好物">
-    <!-- 下面是插槽主体内容模版 -->
-    <!-- 写在标签内，相当于传递 slot 参数 -->
-    <ul class="goods-list">
-      <li v-for="item in newList" :key="item.id">
-        <RouterLink to="/">
-          <img :src="item.picture" alt="" />
-          <p class="name">{{ item.name }}</p>
-          <p class="price">&yen;{{ item.price }}</p>
-        </RouterLink>
-      </li>
-    </ul>
-  </HomePanel>
+  <div></div>
+  <!-- 下面是插槽主体内容模版
+  <ul class="goods-list">
+    <li v-for="item in newList" :key="item.id">
+      <RouterLink to="/">
+        <img :src="item.picture" alt="" />
+        <p class="name">{{ item.name }}</p>
+        <p class="price">&yen;{{ item.price }}</p>
+      </RouterLink>
+    </li>
+  </ul>
+  -->
 </template>
 
 <script setup lang="ts">
@@ -27,8 +25,7 @@ const getNewList = async () => {
   newList.value = res.result;
 };
 
-// getNewList(); // 执行 async 函数
-onMounted(() => getNewList());
+onMounted(() => )
 </script>
 
 <style scoped lang="scss">

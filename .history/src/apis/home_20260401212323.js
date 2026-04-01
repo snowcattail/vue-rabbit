@@ -7,10 +7,8 @@ export function getBannerAPI() {
     url: "home/banner",
   });
 }
-/**
- * @description: 获取新鲜好物
- */
-export function fineNewAPI() {
+
+function fineNewAPI() {
   return http({
     url: "home/new",
   });

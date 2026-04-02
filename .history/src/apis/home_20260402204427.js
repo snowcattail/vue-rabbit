@@ -23,10 +23,7 @@ export function findHotAPI() {
     url: "home/hot",
   });
 }
-/**
- * @description: 获取所有商品列表
- */
-export function getGoodsAPI() {
+function getGoodsAPI() {
   return http({
     url: "home/goods",
   });

@@ -15,10 +15,8 @@ export function findNewAPI() {
     url: "home/new",
   });
 }
-/**
- * @description: 获取人气推荐
- */
-export function findHotAPI() {
+
+function findHotAPI() {
   return http({
     url: "home/hot",
   });

@@ -10,16 +10,8 @@ export function getBannerAPI() {
 /**
  * @description: 获取新鲜好物
  */
-export function findNewAPI() {
+export function fineNewAPI() {
   return http({
     url: "home/new",
-  });
-}
-/**
- * @description: 获取人气推荐
- */
-export function findHotAPI() {
-  return http({
-    url: "home/hot",
   });
 }

@@ -1,8 +1,7 @@
 <template>
-  <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-    <!-- 下面是插槽主体内容模版 -->
+  <HomePanel title="人气推荐" sub-title="人气爆款-不容错过">
     <ul class="goods-list">
-      <li v-for="item in hotList" :key="item.id">
+      <li v-for="item in newList" :key="item.id">
         <RouterLink to="/">
           <img :src="item.picture" :alt="item.alt" />
           <p class="name">{{ item.title }}</p>
@@ -11,6 +10,9 @@
     </ul>
   </HomePanel>
   <div></div>
+  <!-- 下面是插槽主体内容模版
+
+  -->
 </template>
 
 <script setup lang="ts">

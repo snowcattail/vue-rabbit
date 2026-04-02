@@ -1,16 +1,15 @@
 <template>
-  <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-    <!-- 下面是插槽主体内容模版 -->
-    <ul class="goods-list">
-      <li v-for="item in hotList" :key="item.id">
-        <RouterLink to="/">
-          <img :src="item.picture" :alt="item.alt" />
-          <p class="name">{{ item.title }}</p>
-        </RouterLink>
-      </li>
-    </ul>
-  </HomePanel>
   <div></div>
+  <!-- 下面是插槽主体内容模版
+  <ul class="goods-list">
+    <li v-for="item in newList" :key="item.id">
+      <RouterLink to="/">
+        <img :src="item.picture" :alt="item.alt" />
+        <p class="name">{{ item.title }}</p>
+      </RouterLink>
+    </li>
+  </ul>
+  -->
 </template>
 
 <script setup lang="ts">
@@ -24,8 +23,6 @@ const getHotList = async () => {
   const res = await findHotAPI();
   hotList.value = res.result;
 };
-
-onMounted(() => getHotList());
 </script>
 
 <style scoped lang="scss">

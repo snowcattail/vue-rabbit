@@ -11,8 +11,12 @@
         </RouterLink>
         <ul class="goods-list">
           <li v-for="good in cate.goods" :key="good.id">
-            <!-- <GoodsItem :good="good" /> -->
-            <GoodsItem :good="good"></GoodsItem>
+            <RouterLink to="/" class="goods-item">
+              <img v-img-lazy="good.picture" alt="" />
+              <p class="name ellipsis">{{ good.name }}</p>
+              <p class="desc ellipsis">{{ good.desc }}</p>
+              <p class="price">&yen;{{ good.price }}</p>
+            </RouterLink>
           </li>
         </ul>
       </div>

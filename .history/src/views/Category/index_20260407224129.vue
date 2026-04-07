@@ -66,11 +66,7 @@ onBeforeRouteUpdate((to) => {
   getCategoryData(to.params.id);
 });
 
-onMounted(() => {
-  // 获取路由参数 id
-  // useRoute() => route <=> this.$route
-  getCategoryData(route.params.id);
-});
+onMounted(() => getCategoryData(route.params.id));
 
 const bannerList = ref([]);
 

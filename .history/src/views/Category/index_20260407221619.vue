@@ -53,7 +53,7 @@ const categoryData = ref({});
 const route = useRoute();
 const getCategoryData = async (id) => {
   const res = await getCategoryAPI(id);
-  // console.log(res);
+  console.log(res);
   categoryData.value = res.result;
 };
 

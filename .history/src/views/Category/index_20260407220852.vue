@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import { getCategoryAPI } from "@/apis/category.js";
 import { getBannerAPI } from "@/apis/home.js";
-import GoodsItem from "../Home/components/GoodsItem.vue";
+import GoodsItem from "../Home/components/GoodsItem.vue"
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
@@ -53,7 +53,6 @@ const categoryData = ref({});
 const route = useRoute();
 const getCategoryData = async (id) => {
   const res = await getCategoryAPI(id);
-  // console.log(res);
   categoryData.value = res.result;
 };
 

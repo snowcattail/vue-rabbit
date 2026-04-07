@@ -7,7 +7,7 @@
         <el-breadcrumb separator=">">
           <!-- to => 路由跳转目标，同 vue-router 的 to 属性 -->
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
+          <el-breadcrumb-item>居家</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <!-- Banner 轮播图 -->
@@ -22,21 +22,12 @@
       <div class="sub-list">
         <h3>全部分类</h3>
         <ul>
-          <li v-for="i in categoryData.children" :key="i.id">
-            <RouterLink to="/">
-              <img :src="i.picture" />
-              <p>{{ i.name }}</p>
-            </RouterLink>
-          </li>
+          <li v-for="i in categoryData"></li>
         </ul>
       </div>
-      <div class="ref-goods" v-for="item in categoryData.children" :key="item.id">
-        <div class="head">
-          <h3>- {{ item.name }}-</h3>
-        </div>
-        <div class="body">
-          <GoodsItem v-for="good in item.goods" :good="good" :key="good.id" />
-        </div>
+      <div class="ref-goods">
+        <div class="head"></div>
+        <div class="body"></div>
       </div>
     </div>
   </div>
@@ -45,7 +36,6 @@
 <script setup lang="ts">
 import { getCategoryAPI } from "@/apis/category.js";
 import { getBannerAPI } from "@/apis/home.js";
-import GoodsItem from "../Home/components/GoodsItem.vue";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
@@ -53,7 +43,6 @@ const categoryData = ref({});
 const route = useRoute();
 const getCategoryData = async (id) => {
   const res = await getCategoryAPI(id);
-  // console.log(res);
   categoryData.value = res.result;
 };
 

@@ -126,15 +126,4 @@ onMounted(() => getBanner());
     padding: 25px 0;
   }
 }
-
-.home-banner {
-  width: 1240px;
-  height: 500px;
-  z-index: 98;
-
-  img {
-    width: 100%;
-    height: 500px;
-  }
-}
 </style>

@@ -3,12 +3,8 @@ import http from "@/utils/http";
  * @description: 获取 banner 图
  */
 export function getBannerAPI(params = {}) {
-  const { distributionSite = "1" } = params;
   return http({
     url: "home/banner",
-    params: {
-      distributionSite,
-    },
   });
 }
 /**

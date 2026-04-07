@@ -57,13 +57,13 @@ const getCategoryData = async (id) => {
   categoryData.value = res.result;
 };
 
+// onMounted(() => getCategoryData(route.params.id));
+
 onBeforeRouteUpdate((to) => {
   // console.log("route has changed");
   // console.log(to);
   getCategoryData(to.params.id);
 });
-
-onMounted(() => getCategoryData(route.params.id));
 
 const bannerList = ref([]);
 

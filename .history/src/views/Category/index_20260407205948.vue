@@ -3,9 +3,8 @@
     <div class="container m-top-20">
       <!-- 面包屑 -->
       <div class="bread-container">
-        <!-- separator => 分隔符 -->
+        <!--  -->
         <el-breadcrumb separator=">">
-          <!-- to => 路由跳转目标，同 vue-router 的 to 属性 -->
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item>居家</el-breadcrumb-item>
         </el-breadcrumb>
@@ -14,20 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { getCategoryAPI } from "@/apis/category.js";
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
-
-const categoryData = ref({});
-const route = useRoute();
-const getCategoryData = async (id) => {
-  const res = await getCategoryAPI(id);
-  categoryData.value = res.result;
-};
-
-onMounted(() => getCategoryData(route.params.id));
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .top-category {

@@ -17,16 +17,6 @@
 <script setup lang="ts">
 import { getCategoryAPI } from "@/apis/category.js";
 import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
-
-const categoryData = ref({});
-const route = useRoute();
-const getCategoryData = async (id) => {
-  const res = await getCategoryAPI(id);
-  categoryData.value = res.result;
-};
-
-onMounted(() => getCategoryData(route.params.id));
 </script>
 
 <style scoped lang="scss">

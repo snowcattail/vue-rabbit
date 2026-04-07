@@ -21,12 +21,10 @@ import { useRoute } from "vue-router";
 
 const categoryData = ref({});
 const route = useRoute();
-const getCategoryData = async (id) => {
+const getCategoryData = async (id: number) => {
   const res = await getCategoryAPI(id);
   categoryData.value = res.result;
 };
-
-onMounted(() => getCategoryData(route.params.id));
 </script>
 
 <style scoped lang="scss">

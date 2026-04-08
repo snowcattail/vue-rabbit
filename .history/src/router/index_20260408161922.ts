@@ -23,10 +23,6 @@ const router = createRouter({
           path: "category/:id", // :id 动态接收分类 id 参数
           component: Category,
         },
-        {
-          path: "category/sub/:id",
-          component: SubCategory,
-        },
       ],
     },
     {

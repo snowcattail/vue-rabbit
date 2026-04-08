@@ -66,19 +66,7 @@ const tabChange = () => {
 
 // 加载更多
 const disabled = ref(false);
-const load = async () => {
-  // console.log("加载更多数据");
-  // 获取下一页数据
-  reqData.value.page++;
-  const res = await getSubCategoryAPI(reqData.value);
-  console.log(res);
-  goodList.value = [...goodList.value, ...res.result.items];
-
-  // 当返回的是空数组时，将 disabled 设置为 true
-  if (res.result.items === 0) {
-    disabled.value = true;
-  }
-};
+const load = async () => {};
 </script>
 
 <style scoped lang="scss">

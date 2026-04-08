@@ -16,7 +16,7 @@
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
       </el-tabs>
-      <div class="body" v-infinite-scroll="load" :infinite-scroll-disabled="disabled">
+      <div class="body" v-infinite-scroll="load" infinite-scroll-disabled="disabled">
         <!-- 商品列表 -->
         <GoodsItem v-for="good in goodList" :good="good" :key="good.id" />
       </div>
@@ -67,15 +67,13 @@ const tabChange = () => {
 // 加载更多
 const disabled = ref(false);
 const load = async () => {
-  // console.log("加载更多数据");
+  console.log("加载更多数据");
   // 获取下一页数据
-  reqData.value.page++;
   const res = await getSubCategoryAPI(reqData.value);
-  console.log(res);
   goodList.value = [...goodList.value, ...res.result.items];
 
-  // 当返回的是空数组时，将 disabled 设置为 true
   if (res.result.items === 0) {
+    console.log(11111);
     disabled.value = true;
   }
 };

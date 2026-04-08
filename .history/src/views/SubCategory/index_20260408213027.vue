@@ -74,7 +74,6 @@ const load = async () => {
   console.log(res);
   goodList.value = [...goodList.value, ...res.result.items];
 
-  // 当返回的是空数组时，将 disabled 设置为 true
   if (res.result.items === 0) {
     disabled.value = true;
   }

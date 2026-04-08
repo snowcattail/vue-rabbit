@@ -44,12 +44,37 @@
 
 <script setup lang="ts">
 import { useBanner } from "@/views/Category/composables/useBanner.js";
-import { useCategory } from "@/views/Category/composables/useCategory.js";
+import { getCategoryAPI } from "@/apis/category.js";
 import GoodsItem from "../Home/components/GoodsItem.vue";
+import { ref, onMounted } from "vue";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
+
+const categoryData = ref({});
+const route = useRoute();
+const getCategoryData = async (id) => {
+  const res = await getCategoryAPI(id);
+  // console.log(res);
+  categoryData.value = res.result;
+};
+
+// 路由参数变化时，将分类数据接口重新发送
+onBeforeRouteUpdate((to) => {
+  // console.log("route has changed");
+  // console.log(to);
+  // route.params.id 存在滞后性，无法及时获取路由参数
+  // 通过参数 to 目标路由对象，获取路由参数
+  getCategoryData(to.params.id);
+});
+
+onMounted(() => {
+  // 获取路由参数 id
+  // useRoute() => route <=> this.$route
+  getCategoryData(route.params.id);
+});
+</script>
 
 const { bannerList } = useBanner();
-const { categoryData } = useCategory();
-</script>
+
 <style scoped lang="scss">
 .top-category {
   h3 {

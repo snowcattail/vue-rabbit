@@ -44,11 +44,11 @@
 
 <script setup lang="ts">
 import { useBanner } from "@/views/Category/composables/useBanner.js";
-import { useCategory } from "@/views/Category/composables/useCategory.js";
 import GoodsItem from "../Home/components/GoodsItem.vue";
 
+
+
 const { bannerList } = useBanner();
-const { categoryData } = useCategory();
 </script>
 <style scoped lang="scss">
 .top-category {

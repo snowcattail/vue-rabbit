@@ -57,11 +57,8 @@ const getGoodList = async () => {
 
 onMounted(() => getGoodList());
 
-// tab 切换回调
 const tabChange = () => {
-  // console.log("tab 切换", reqData.value.sortField);
-  reqData.value.page = 1;
-  getGoodList();
+  console.log("tab 切换", reqData.value.sortField);
 };
 </script>
 

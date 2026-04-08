@@ -18,7 +18,6 @@
       </el-tabs>
       <div class="body">
         <!-- 商品列表 -->
-        <GoodsItem v-for="good in goodList" :good="good" :key="good.id" />
       </div>
     </div>
   </div>
@@ -39,23 +38,6 @@ const getCategoryData = async () => {
 };
 
 onMounted(() => getCategoryData());
-
-// 获取基本列表数据
-const goodList = ref([]);
-const reqData = ref({
-  categoryId: route.params.id,
-  page: 1,
-  pageSize: 20,
-  sortField: "publishTime",
-});
-
-const getGoodList = async () => {
-  const res = await getSubCategoryAPI(reqData.value);
-  // console.log(res);
-  goodList.value = res.result.items;
-};
-
-onMounted(() => getGoodList());
 </script>
 
 <style scoped lang="scss">

@@ -41,7 +41,7 @@ const getCategoryData = async () => {
 onMounted(() => getCategoryData());
 
 // 获取基本列表数据
-const goodList = ref([]);
+const goodList = ref({});
 const reqData = ref({
   categoryId: route.params.id,
   page: 1,
@@ -51,7 +51,6 @@ const reqData = ref({
 
 const getGoodList = async () => {
   const res = await getSubCategoryAPI(reqData.value);
-  // console.log(res);
   goodList.value = res.result.items;
 };
 

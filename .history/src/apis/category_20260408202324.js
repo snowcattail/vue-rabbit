@@ -39,9 +39,7 @@ export const getCategoryFilterAPI = (id) => {
  * @return {*}
 */
 export const getSubCategoryAPI = (data) => {
-  // 注意是返回 http
-  // 文档里写的 request 是错误的
-  return http({
+  return request({
     url: "/category/goods/temporary",
     method: "POST",
     data,

@@ -51,7 +51,6 @@ const reqData = ref({
 
 const getGoodList = async () => {
   const res = await getSubCategoryAPI(reqData.value);
-  // console.log(res);
   goodList.value = res.result.items;
 };
 

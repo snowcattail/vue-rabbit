@@ -39,9 +39,7 @@
                 </li>
                 <li>
                   <p>品牌信息</p>
-                  <!-- 因为接口返回的 goods.brand 不一定有数据 -->
-                  <!-- 所以需要在 brand 后加上 ? 表示可选属性 -->
-                  <p>{{ goods.brand?.name }}</p>
+                  <p>{{ goods.brand.name }}+</p>
                   <p><i class="iconfont icon-dynamic-filling"></i>品牌主页</p>
                 </li>
               </ul>
@@ -95,7 +93,7 @@
                     </li>
                   </ul>
                   <!-- 图片 -->
-                  <img v-for="img in goods.details.pictures" v-img-lazy="img" :key="img" alt="" />
+                  <img v-for="img in goods.details.pictures" v-img-lazy="img" :key="img" alt="">
                 </div>
               </div>
             </div>
@@ -118,7 +116,6 @@ const route = useRoute();
 const goods = ref({});
 const getGoods = async () => {
   const res = await getDetail(route.params.id);
-  console.log(res);
   goods.value = res.result;
 };
 

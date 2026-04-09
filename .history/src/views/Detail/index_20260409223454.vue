@@ -19,8 +19,8 @@
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-              <!-- prop 名字为 imageList (camelCase) -->
-              <!-- 组件名使用 image-list (kebab-case) -->
+              <!-- prop 名字采用 camelCase -->
+              <!-- 组件内使用采用 -->
               <ImageView :image-list="goods.mainPictures" />
               <!-- 统计数量 -->
               <ul class="goods-sales">

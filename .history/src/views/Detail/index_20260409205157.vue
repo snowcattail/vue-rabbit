@@ -99,13 +99,8 @@
                 </div>
               </div>
             </div>
-            <!-- 24 热榜 + 专题推荐 -->
-            <div class="goods-aside">
-              <!-- 24 小时热榜 -->
-              <GoodHot :type="1" />
-              <!-- 周热榜 -->
-              <GoodHot :type="2" />
-            </div>
+            <!-- 24热榜+专题推荐 -->
+            <div class="goods-aside"></div>
           </div>
         </div>
       </div>
@@ -115,7 +110,7 @@
 
 <script setup lang="ts">
 import { getDetail } from "@/apis/detail.js";
-import GoodHot from "@/views/Detail/components/DetailHot.vue";
+import DetailHot from "@/views/Detail/components/DetailHot.vue";
 
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";

@@ -1,0 +1,10 @@
+<template>
+  <div class="goods-hot">
+    <h3>周日榜单</h3>
+    <RouterLink to="/" class="goods-item" v-for="item in 3" :key="item.id"> </RouterLink>
+  </div>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped lang="scss"></style>

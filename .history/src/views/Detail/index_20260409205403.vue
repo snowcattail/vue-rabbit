@@ -115,7 +115,7 @@
 
 <script setup lang="ts">
 import { getDetail } from "@/apis/detail.js";
-import GoodHot from "@/views/Detail/components/DetailHot.vue";
+import DetailHot from "@/views/Detail/components/DetailHot.vue";
 
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";

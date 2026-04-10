@@ -31,7 +31,7 @@
       </li>
     </ul>
     <!-- 放大镜大图 -->
-    <!-- <div
+    <div
       class="large"
       :style="[
         {
@@ -41,7 +41,7 @@
         },
       ]"
       v-show="!isOutside"
-    ></div> -->
+    ></div>
     <div class="large" :style="styleArray" v-show="!isOutside"></div>
   </div>
 </template>
@@ -59,10 +59,7 @@ import { useMouseInElement } from "@vueuse/core";
 //   "https://yanxuan-item.nosdn.127.net/f881cfe7de9a576aaeea6ee0d1d24823.jpg",
 // ];
 
-// 官方文档：defineProps 会返回一个对象，其中包含了可以传递给组件的所有 props
-// 接收 defineProps 返回值
-const props = defineProps({
-  // 父（Detail/index.vue）传子（ImageView/index.vue）
+defineProps({
   // prop 名字格式：camelCase
   imageList: {
     type: Array,
@@ -95,7 +92,7 @@ const positionY = ref(0);
 
 const styleArray = computed(() => [
   {
-    backgroundImage: `url(${props.imageList[activeIndex.value]})`,
+    backgroundImage: `url(${imageList[activeIndex]})`,
     backgroundPositionX: `${positionX.value}px`,
     backgroundPositionY: `${positionY.value}px`,
   },

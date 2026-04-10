@@ -4,16 +4,7 @@
     <div class="middle" ref="target">
       <img :src="imageList[activeIndex]" alt="" />
       <!-- 蒙层小滑块 -->
-      <!-- <div
-        class="layer"
-        v-show="!isOutside"
-        :style="{
-          left: `${left}px`,
-          top: `${top}px`,
-        }"
-      ></div> -->
-      <!-- 官方文档：若样式对象需要更复杂的逻辑，使用返回样式对象的**计算属性**。 -->
-      <div class="layer" v-show="!isOutside" :style="styleObject"></div>
+      <div class="layer" v-show="!isOutside" :style="styleObj"></div>
     </div>
     <!-- 小图列表 -->
     <ul class="small">
@@ -31,7 +22,7 @@
       </li>
     </ul>
     <!-- 放大镜大图 -->
-    <!-- <div
+    <div
       class="large"
       :style="[
         {
@@ -41,14 +32,17 @@
         },
       ]"
       v-show="!isOutside"
-    ></div> -->
-    <div class="large" :style="styleArray" v-show="!isOutside"></div>
+    ></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 import { useMouseInElement } from "@vueuse/core";
+
+const styleObj = reactive({
+  
+})
 
 // // 图片列表
 // const imageList = [
@@ -59,10 +53,7 @@ import { useMouseInElement } from "@vueuse/core";
 //   "https://yanxuan-item.nosdn.127.net/f881cfe7de9a576aaeea6ee0d1d24823.jpg",
 // ];
 
-// 官方文档：defineProps 会返回一个对象，其中包含了可以传递给组件的所有 props
-// 接收 defineProps 返回值
-const props = defineProps({
-  // 父（Detail/index.vue）传子（ImageView/index.vue）
+defineProps({
   // prop 名字格式：camelCase
   imageList: {
     type: Array,
@@ -85,21 +76,8 @@ const { elementX, elementY, isOutside } = useMouseInElement(target);
 const left = ref(0);
 const top = ref(0);
 
-const styleObject = computed(() => ({
-  left: `${left.value}px`,
-  top: `${top.value}px`,
-}));
-
 const positionX = ref(0);
 const positionY = ref(0);
-
-const styleArray = computed(() => [
-  {
-    backgroundImage: `url(${props.imageList[activeIndex.value]})`,
-    backgroundPositionX: `${positionX.value}px`,
-    backgroundPositionY: `${positionY.value}px`,
-  },
-]);
 
 watch([elementX, elementY, isOutside], () => {
   console.log("x y 变化了");

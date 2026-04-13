@@ -36,7 +36,7 @@
               <el-form-item prop="agree" label-width="22px">
                 <el-checkbox size="large"> 我已同意隐私条款和服务条款 </el-checkbox>
               </el-form-item>
-              <el-button size="large" class="subBtn" @click="doLogin">点击登录</el-button>
+              <el-button size="large" class="subBtn">点击登录</el-button>
             </el-form>
           </div>
         </div>

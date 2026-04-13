@@ -20,23 +20,22 @@
         <div class="account-box">
           <div class="form">
             <el-form
-              ref="formRef"
               label-position="right"
               :model="form"
               :rules="rules"
               label-width="60px"
               status-icon
             >
-              <el-form-item prop="account" label="账户">
-                <el-input v-model="form.account" />
+              <el-form-item label="账户">
+                <el-input />
               </el-form-item>
-              <el-form-item prop="password" label="密码">
-                <el-input v-model="form.password" />
+              <el-form-item label="密码">
+                <el-input />
               </el-form-item>
-              <el-form-item prop="agree" label-width="22px">
+              <el-form-item label-width="22px">
                 <el-checkbox size="large"> 我已同意隐私条款和服务条款 </el-checkbox>
               </el-form-item>
-              <el-button size="large" class="subBtn" @click="doLogin">点击登录</el-button>
+              <el-button size="large" class="subBtn">点击登录</el-button>
             </el-form>
           </div>
         </div>
@@ -61,14 +60,14 @@
 
 <script setup>
 // 1. 准备表单对象
-const form = reactive({
+const form = ref({
   account: "",
   password: "",
   agree: true,
 });
 
 // 2. 校验规则对象
-const rules = reactive({
+const rules = {
   account: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
   password: [
     { required: true, message: "密码不能为空", trigger: "blur" },
@@ -88,23 +87,6 @@ const rules = reactive({
       },
     },
   ],
-});
-
-// 3. 获取 form 实例做统一校验
-const formRef = ref();
-
-const doLogin = () => {
-  // 调用实例方法
-  // WebAssembly.validate()
-  formRef.value.validate(async (valid) => {
-    // valid：所有表单通过校验后，才为 true
-    console.log(valid);
-    // 以 valid 为判断条件
-    // 若通过校验，执行登录逻辑
-    if (valid) {
-      // TODO LOGIN
-    }
-  });
 };
 </script>
 

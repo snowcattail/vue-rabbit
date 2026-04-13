@@ -3,7 +3,7 @@
     <header class="login-header">
       <div class="container m-top-20">
         <h1 class="logo">
-          <RouterLink to="/">小兔鲜</RouterLink>
+          <RouterLink to="/"></RouterLink>
         </h1>
         <RouterLink class="entry" to="/">
           进入网站首页

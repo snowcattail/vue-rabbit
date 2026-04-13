@@ -35,6 +35,7 @@
         </div>
       </div>
     </section>
+
     <footer class="login-footer">
       <div class="container">
         <p>

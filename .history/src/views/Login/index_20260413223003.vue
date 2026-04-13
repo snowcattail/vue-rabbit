@@ -99,8 +99,10 @@ const router = useRouter();
 const formRef = ref();
 
 const doLogin = () => {
-  // 解构时尽量不用 reactive，因为会丢失响应式
-  const { account, password } = form.value;
+  // 注意：此处不能用 reactive
+  // 因为解构的时候会丢失响应式
+  console.log(form);
+  const { account, password } = form;
   // 调用实例方法
   // WebAssembly.validate()
   formRef.value.validate(async (valid) => {

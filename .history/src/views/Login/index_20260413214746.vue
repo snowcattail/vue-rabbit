@@ -60,12 +60,11 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-import { useRouter } from "vue-router"; // 需要加大括号
+import router from "vue-router";
 import { loginAPI } from "@/apis/user.js";
 
 // 1. 准备表单对象
-const form = ref({
+const form = reactive({
   account: "",
   password: "",
   agree: true,
@@ -99,7 +98,6 @@ const router = useRouter();
 const formRef = ref();
 
 const doLogin = () => {
-  // 解构时尽量不用 reactive，因为会丢失响应式
   const { account, password } = form.value;
   // 调用实例方法
   // WebAssembly.validate()

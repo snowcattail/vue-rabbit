@@ -12,7 +12,6 @@
           </li>
           <li>
             <!-- popconfirm 气泡确认框 -->
-            <!-- @confirm="event" => 给确认按钮绑定自定义事件 -->
             <el-popconfirm
               confirm-button-text="确认"
               cancel-button-text="取消"

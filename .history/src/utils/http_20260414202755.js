@@ -9,16 +9,7 @@ const http = axios.create({
 
 // axios 请求拦截器
 http.interceptors.request.use(
-  (config) => {
-    // 1. 从 pinia 获取 token 数据
-    const userStore = useUserStore();
-    // 2. 按照后端要求拼接 token 数据
-    const token = userStore.userInfo.token;
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
+  (config) => {},
   (e) => Promise.reject(e),
 );
 

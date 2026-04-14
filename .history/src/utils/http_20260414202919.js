@@ -13,11 +13,6 @@ http.interceptors.request.use(
     // 1. 从 pinia 获取 token 数据
     const userStore = useUserStore();
     // 2. 按照后端要求拼接 token 数据
-    const token = userStore.userInfo.token;
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
   },
   (e) => Promise.reject(e),
 );

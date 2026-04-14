@@ -33,13 +33,6 @@ http.interceptors.response.use(
       type: "warning",
       message: e.response.data.message,
     });
-    // token 失效（401）处理
-    // 1. 清除本地用户数据
-    // 2. 跳转登录页
-    if (e.response.status === 401) {
-      userStore.clearUserInfo();
-      router.push("/login");
-    }
     return Promise.reject(e);
   },
 );

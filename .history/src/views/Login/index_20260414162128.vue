@@ -62,7 +62,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router"; // 需要加大括号
-import { useUserStore } from "@/stores/user";
+import {  } from "@/stores/user";
 import { loginAPI } from "@/apis/user.js";
 
 // 1. 准备表单对象
@@ -99,8 +99,6 @@ const rules = reactive({
 const router = useRouter();
 const formRef = ref();
 
-const userStore = useUserStore();
-
 const doLogin = () => {
   // 解构时尽量不用 reactive，因为会丢失响应式
   const { account, password } = form.value;
@@ -113,7 +111,7 @@ const doLogin = () => {
     // 若通过校验，执行登录逻辑
     if (valid) {
       // TODO LOGIN
-      await userStore.getUserInfo({ account, password });
+      await loginAPI({ account, password });
       // 1. 提示用户
       ElMessage({
         type: "success",

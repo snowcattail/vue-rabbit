@@ -99,8 +99,6 @@ const rules = reactive({
 const router = useRouter();
 const formRef = ref();
 
-const userStore = useUserStore();
-
 const doLogin = () => {
   // 解构时尽量不用 reactive，因为会丢失响应式
   const { account, password } = form.value;
@@ -112,8 +110,9 @@ const doLogin = () => {
     // 以 valid 为判断条件
     // 若通过校验，执行登录逻辑
     if (valid) {
+      const userStore = useUserStore();
       // TODO LOGIN
-      await userStore.getUserInfo({ account, password });
+      await loginAPI({ account, password });
       // 1. 提示用户
       ElMessage({
         type: "success",

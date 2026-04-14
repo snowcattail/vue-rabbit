@@ -113,7 +113,7 @@ const doLogin = () => {
     // 若通过校验，执行登录逻辑
     if (valid) {
       // TODO LOGIN
-      await userStore.getUserInfo({ account, password });
+      await loginAPI({ account, password });
       // 1. 提示用户
       ElMessage({
         type: "success",

@@ -21,7 +21,6 @@ http.interceptors.response.use(
       type: "warning",
       message: e.response.data.message,
     });
-    return Promise.reject(e);
   },
 );
 

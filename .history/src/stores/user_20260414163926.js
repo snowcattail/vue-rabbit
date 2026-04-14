@@ -19,6 +19,6 @@ export const useUserStore = defineStore(
     };
   },
   {
-    persist: true, // store 持久化配置
+    persist: true,
   },
 );

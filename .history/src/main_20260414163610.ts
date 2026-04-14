@@ -10,15 +10,11 @@ import router from "./router";
 import "@/styles/common.scss";
 
 const app = createApp(App);
-const pinia = createPinia();
+
 
 app.use(createPinia());
 app.use(router);
 app.use(lazyPlugin);
 app.use(componentPlugin);
-
-// 注册持久化插件
-pinia.use(piniaPluginPersistedstate);
-app.use(pinia);
 
 app.mount("#app");

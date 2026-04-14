@@ -3,7 +3,10 @@
     <div class="container">
       <ul>
         <!-- 多模版渲染区分登录状态和非登录状态 -->
-        <!-- 适配思路：登录时显示第一块，非登录时显示第二块是否有 token -->
+        <!-- 适配思路：
+        登录时显示第一块
+        非登录时显示第二块是否有 token
+        -->
         <template v-if="userStore.userInfo.token">
           <li>
             <a href="javascript:;"

@@ -2,8 +2,6 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <!-- 多模版渲染区分登录状态和非登录状态 -->
-        <!-- 适配思路：登录时显示第一块，非登录时显示第二块是否有 token -->
         <template v-if="userStore.userInfo.token">
           <li>
             <a href="javascript:;"
@@ -23,8 +21,6 @@
           <li><a href="javascript:;">会员中心</a></li>
         </template>
         <template v-else>
-          <!-- 在组件模板中，路由器实例被暴露为 $router -->
-          <!-- 因此 router 前要加 $ -->
           <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
           <li><a href="javascript:;">帮助中心</a></li>
           <li><a href="javascript:;">关于我们</a></li>

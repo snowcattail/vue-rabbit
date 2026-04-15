@@ -1,12 +1,25 @@
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
 export const useCartStore = defineStore(
   "cart",
   () => {
-    // 1. 定义 state - cartList
+    // 定义 state - cartList
     const cartList = ref([]);
-    // 2. 定义 action - addCart
+    // 定义 getter - allCount / allPrice
+    // 1. 总数量 - 所有项的 count 之和
+    const allCount = computed(() => {
+      return cartList.value.reduce((a, c) => {
+        return a + c.count;
+      }, 0);
+    });
+    // 2. 总价 - 所有项的 count * price 之和
+    const allPrice = computed(() => {
+      return cartList.value.reduce((a, c) => {
+        return a + c.count * c.price;
+      }, 0);
+    });
+    // 定义 action - addCart
     const addCart = async (goods) => {
       // 添加购物车
 
@@ -31,7 +44,7 @@ export const useCartStore = defineStore(
         cartList.value.push(goods);
       }
     };
-    // 3. 定义 action - delCart
+    // 定义 action - delCart
     const delCart = async (skuId) => {
       // 思路：
       // 1. 找到要删除项的下标值 - findIndex
@@ -43,6 +56,8 @@ export const useCartStore = defineStore(
     };
     return {
       cartList,
+      allCount,
+      allPrice,
       addCart,
       delCart,
     };

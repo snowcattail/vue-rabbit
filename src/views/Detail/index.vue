@@ -167,7 +167,7 @@ const addCart = () => {
     });
   } else {
     // 规格没有选择，提示用户
-    console.log("warning");
+    // console.log("warning");
     ElMessage({
       message: "请选择规格",
       type: "warning",

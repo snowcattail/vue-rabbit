@@ -9,7 +9,9 @@
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li class="home" v-for="item in categoryList" :key="item.id">
-          <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${item.id}`">
+            {{ item.name }}</RouterLink
+          >
         </li>
       </ul>
       <div class="search">
@@ -17,11 +19,14 @@
         <input type="text" placeholder="搜一搜" />
       </div>
       <!-- 头部购物车 -->
+      <HeaderCart />
     </div>
   </header>
 </template>
 
 <script setup>
+import HeaderCart from "./HeaderCart.vue";
+
 import { useCategoryStore } from "@/stores/category";
 import { storeToRefs } from "pinia";
 const categoryStore = useCategoryStore();

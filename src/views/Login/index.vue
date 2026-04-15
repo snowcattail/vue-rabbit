@@ -62,6 +62,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router"; // 需要加大括号
+import { ElMessage } from "element-plus";
 import { useUserStore } from "@/stores/user";
 import { loginAPI } from "@/apis/user.js";
 

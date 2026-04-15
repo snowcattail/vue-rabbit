@@ -62,7 +62,7 @@ import { useMouseInElement } from "@vueuse/core";
 // 官方文档：defineProps 会返回一个对象，其中包含了可以传递给组件的所有 props
 // 接收 defineProps 返回值
 const props = defineProps({
-  // 父（Detail/index.vue）传子（ImageView/index.vue）
+  // 父（Detail/index.vue）传子（XtxImageView/index.vue）
   // prop 名字格式：camelCase
   imageList: {
     type: Array,

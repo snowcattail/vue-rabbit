@@ -117,7 +117,7 @@
 
 <script setup>
 import GoodHot from "@/views/Detail/components/DetailHot.vue";
-import ImageView from "@/components/ImageView/index.vue";
+import XtxImageView from "@/components/XtxImageView/index.vue";
 import XtxSku from "@/components/XtxSku/index.vue";
 
 import { getDetail } from "@/apis/detail.js";

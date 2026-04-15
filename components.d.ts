@@ -29,7 +29,6 @@ declare module 'vue' {
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
-    ImageView: typeof import('./src/components/ImageView/index.vue')['default']
     LayoutFooter: typeof import('./src/components/LayoutFooter.vue')['default']
     LayoutHeader: typeof import('./src/components/LayoutHeader.vue')['default']
     LayoutNav: typeof import('./src/components/LayoutNav.vue')['default']
@@ -37,6 +36,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
+    XtxImageView: typeof import('./src/components/XtxImageView/index.vue')['default']
     XtxSku: typeof import('./src/components/XtxSku/index.vue')['default']
   }
   export interface GlobalDirectives {

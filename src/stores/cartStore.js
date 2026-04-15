@@ -31,9 +31,20 @@ export const useCartStore = defineStore(
         cartList.value.push(goods);
       }
     };
+    // 3. 定义 action - delCart
+    const delCart = async (skuId) => {
+      // 思路：
+      // 1. 找到要删除项的下标值 - findIndex
+      // 2. 使用数组的删除方法 - splice
+      const idx = cartList.value.findIndex((item) => {
+        return skuId === item.skuId;
+      });
+      cartList.value.splice(idx, 1);
+    };
     return {
       cartList,
       addCart,
+      delCart,
     };
   },
   {

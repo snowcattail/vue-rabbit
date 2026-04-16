@@ -6,7 +6,7 @@ export const useCartStore = defineStore(
   () => {
     // 定义 state - cartList
     const cartList = ref([]);
-    // 定义 getter - allCount / allPrice
+    // 定义 getter - allCount / allPrice / isAll
     // 1. 总数量 - 所有项的 count 之和
     const allCount = computed(() => {
       return cartList.value.reduce((a, c) => {
@@ -18,6 +18,14 @@ export const useCartStore = defineStore(
       return cartList.value.reduce((a, c) => {
         return a + c.count * c.price;
       }, 0);
+    });
+    // 是否全选计算属性（配合 allCheck）
+    const isAll = computed(() => {
+      // Array.prototype.every()
+      // 所有成员的返回值都是 true，整个 every 方法才返回 true，否则返回 false
+      return cartList.value.every((item) => {
+        return item.selected;
+      });
     });
     // 定义 action - addCart
     const addCart = async (goods) => {
@@ -63,13 +71,20 @@ export const useCartStore = defineStore(
       });
       item.selected = selected;
     };
+    // 定义 action - allCheck
+    const allCheck = (selected) => {
+      // 把 cartList 中的每一项的 selected 设置为当前全选框状态
+      cartList.value.forEach((item) => (item.selected = selected));
+    };
     return {
       cartList,
       allCount,
       allPrice,
+      isAll,
       addCart,
       delCart,
       singleCheck,
+      allCheck,
     };
   },
   {

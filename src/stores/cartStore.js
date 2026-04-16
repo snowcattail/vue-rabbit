@@ -53,7 +53,8 @@ export const useCartStore = defineStore(
         })
         .reduce((a, c) => {
           return a + c.count * c.price;
-        }, 0);
+        }, 0)
+        .toFixed(2);
     });
     // isLogin
     const isLogin = computed(() => {

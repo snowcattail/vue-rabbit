@@ -126,6 +126,10 @@ export const useCartStore = defineStore(
       // 把 cartList 中的每一项的 selected 设置为当前全选框状态
       cartList.value.forEach((item) => (item.selected = selected));
     };
+    // 定义 action - clearCart
+    const clearCart = () => {
+      cartList.value = [];
+    };
     return {
       cartList,
       allCount,
@@ -138,6 +142,7 @@ export const useCartStore = defineStore(
       delCart,
       singleCheck,
       allCheck,
+      clearCart,
     };
   },
   {

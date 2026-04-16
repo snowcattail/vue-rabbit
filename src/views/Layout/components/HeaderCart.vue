@@ -1,6 +1,8 @@
 <template>
   <div class="cart">
-    <a class="curr" href="javascript:;"> <i class="iconfont icon-cart"></i><em>2</em> </a>
+    <a class="curr" href="javascript:;">
+      <i class="iconfont icon-cart"></i><em>{{ cartStore.cartList.length }}</em>
+    </a>
     <div class="layer">
       <div class="list">
         <div class="item" v-for="i in cartStore.cartList" :key="i">

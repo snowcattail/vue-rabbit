@@ -54,12 +54,22 @@ export const useCartStore = defineStore(
       });
       cartList.value.splice(idx, 1);
     };
+    // 定义 action - singleCheck
+    const singleCheck = (skuId, selected) => {
+      // 通过 skuId 找到要修改的那一项
+      // 然后把 selected 修改为传入的 selected
+      const item = cartList.value.find((item) => {
+        return item.skuId === skuId;
+      });
+      item.selected = selected;
+    };
     return {
       cartList,
       allCount,
       allPrice,
       addCart,
       delCart,
+      singleCheck,
     };
   },
   {

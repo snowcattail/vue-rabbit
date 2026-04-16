@@ -1,11 +1,19 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
+import { useUserStore } from "./user";
+import { insertCartAPI, findNewCartListAPI } from "@/apis/cart";
+
 export const useCartStore = defineStore(
   "cart",
   () => {
+    const userStore = useUserStore();
+
+    // state
     // 定义 state - cartList
     const cartList = ref([]);
+
+    // getter
     // 定义 getter - allCount / allPrice / isAll
     // 1. 总数量 - 所有项的 count 之和
     const allCount = computed(() => {
@@ -47,29 +55,43 @@ export const useCartStore = defineStore(
           return a + c.count * c.price;
         }, 0);
     });
+    // isLogin
+    const isLogin = computed(() => {
+      return userStore.userInfo.token;
+    });
+
+    // action
     // 定义 action - addCart
     const addCart = async (goods) => {
-      // 添加购物车
-
-      // 已添加过 - count + 1
-      // 未添加过 - 直接 push
-
-      // 思路：
-      // 通过匹配传递过来的商品对象中的 skuId
-      // 能不能在 cartList 中找到，
-      // 找到即添加过
-
-      // Array.prototype.find()
-      // 用来找出第一个符合条件的数组成员
-      const item = cartList.value.find((item) => {
-        return goods.skuId === item.skuId;
-      });
-      if (item) {
-        // 找到
-        item.count++;
+      const { skuId, count } = goods;
+      if (isLogin.value) {
+        // 登录之后的加入购车逻辑
+        await insertCartAPI({ skuId, count });
+        const res = await findNewCartListAPI();
+        cartList.value = res.result;
       } else {
-        // 未找到
-        cartList.value.push(goods);
+        // 添加购物车
+
+        // 已添加过 - count + 1
+        // 未添加过 - 直接 push
+
+        // 思路：
+        // 通过匹配传递过来的商品对象中的 skuId
+        // 能不能在 cartList 中找到，
+        // 找到即添加过
+
+        // Array.prototype.find()
+        // 用来找出第一个符合条件的数组成员
+        const item = cartList.value.find((item) => {
+          return goods.skuId === item.skuId;
+        });
+        if (item) {
+          // 找到
+          item.count++;
+        } else {
+          // 未找到
+          cartList.value.push(goods);
+        }
       }
     };
     // 定义 action - delCart

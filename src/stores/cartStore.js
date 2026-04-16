@@ -2,7 +2,7 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 
 import { useUserStore } from "./user";
-import { insertCartAPI, findNewCartListAPI } from "@/apis/cart";
+import { insertCartAPI, findNewCartListAPI, delCartAPI } from "@/apis/cart";
 
 export const useCartStore = defineStore(
   "cart",
@@ -96,13 +96,21 @@ export const useCartStore = defineStore(
     };
     // 定义 action - delCart
     const delCart = async (skuId) => {
-      // 思路：
-      // 1. 找到要删除项的下标值 - findIndex
-      // 2. 使用数组的删除方法 - splice
-      const idx = cartList.value.findIndex((item) => {
-        return skuId === item.skuId;
-      });
-      cartList.value.splice(idx, 1);
+      if (isLogin.value) {
+        // 调用接口
+        // 实现接口购物车的删除功能
+        await delCartAPI([skuId]);
+        const res = await findNewCartListAPI();
+        cartList.value = res.result;
+      } else {
+        // 思路：
+        // 1. 找到要删除项的下标值 - findIndex
+        // 2. 使用数组的删除方法 - splice
+        const idx = cartList.value.findIndex((item) => {
+          return skuId === item.skuId;
+        });
+        cartList.value.splice(idx, 1);
+      }
     };
     // 定义 action - singleCheck
     const singleCheck = (skuId, selected) => {
@@ -125,6 +133,7 @@ export const useCartStore = defineStore(
       isAll,
       selectedCount,
       selectedPrice,
+      isLogin,
       addCart,
       delCart,
       singleCheck,

@@ -1,6 +1,7 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import { loginAPI } from "@/apis/user";
+import { mergeCartAPI } from "@/apis/cart";
 import { useCartStore } from "@/stores/cartStore";
 
 export const useUserStore = defineStore(
@@ -14,6 +15,18 @@ export const useUserStore = defineStore(
     const getUserInfo = async ({ account, password }) => {
       const res = await loginAPI({ account, password });
       userInfo.value = res.result;
+      // 合并购物车
+      mergeCartAPI(
+        cartStore.cartList.map((item) => {
+          return {
+            skuId: item.skuId,
+            selected: item.selected,
+            count: item.count,
+          };
+        }),
+      );
+      // 获取最新的购物车列表
+      cartStore.findNewCartListAPI();
     };
     // 3. 退出时清除用户信息（action）
     const clearUserInfo = () => {

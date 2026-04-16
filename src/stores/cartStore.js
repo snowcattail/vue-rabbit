@@ -27,6 +27,26 @@ export const useCartStore = defineStore(
         return item.selected;
       });
     });
+    // 已选择数量
+    const selectedCount = computed(() => {
+      return cartList.value
+        .filter((item) => {
+          return item.selected;
+        })
+        .reduce((a, c) => {
+          return a + c.count;
+        }, 0);
+    });
+    // 已选择商品价钱合计
+    const selectedPrice = computed(() => {
+      return cartList.value
+        .filter((item) => {
+          return item.selected;
+        })
+        .reduce((a, c) => {
+          return a + c.count * c.price;
+        }, 0);
+    });
     // 定义 action - addCart
     const addCart = async (goods) => {
       // 添加购物车
@@ -81,6 +101,8 @@ export const useCartStore = defineStore(
       allCount,
       allPrice,
       isAll,
+      selectedCount,
+      selectedPrice,
       addCart,
       delCart,
       singleCheck,

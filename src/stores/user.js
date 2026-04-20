@@ -16,7 +16,8 @@ export const useUserStore = defineStore(
       const res = await loginAPI({ account, password });
       userInfo.value = res.result;
       // 合并购物车
-      mergeCartAPI(
+      // 添加 await，确保合并购物车请求在后端彻底完成
+      await mergeCartAPI(
         cartStore.cartList.map((item) => {
           return {
             skuId: item.skuId,
@@ -25,8 +26,8 @@ export const useUserStore = defineStore(
           };
         }),
       );
-      // 获取最新的购物车列表
-      cartStore.findNewCartListAPI();
+      // 2. 调用正确的 action，拉取最新数据并更新 state
+      await cartStore.updateNewsList();
     };
     // 3. 退出时清除用户信息（action）
     const clearUserInfo = () => {

@@ -39,19 +39,19 @@ const router = createRouter({
           path: "checkout",
           component: Checkout,
         },
+        {
+          path: "/cartlist",
+          component: CartList,
+        },
+        {
+          path: "/pay",
+          component: Pay,
+        },
       ],
     },
     {
       path: "/login",
       component: Login,
-    },
-    {
-      path: "/cartlist",
-      component: CartList,
-    },
-    {
-      path: "/pay",
-      component: Pay,
     },
   ],
   // 路由滚动行为定制

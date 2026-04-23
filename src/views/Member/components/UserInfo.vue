@@ -35,7 +35,8 @@
 </template>
 
 <script setup>
-const userStore = {};
+import { useUserStore } from "@/stores/user";
+const userStore = useUserStore();
 </script>
 
 <style lang="scss" scoped>

@@ -77,7 +77,13 @@
           </div>
           <!-- 分页 -->
           <div class="pagination-container">
-            <el-pagination background layout="prev, pager, next" />
+            <el-pagination
+              :total="total"
+              @current-change="pageChange"
+              :page-size="params.pageSize"
+              background
+              layout="prev, pager, next"
+            />
           </div>
         </div>
       </div>
@@ -99,6 +105,9 @@ const tabTypes = [
   { name: "complete", label: "已完成" },
   { name: "cancel", label: "已取消" },
 ];
+
+// 总条数
+const total = ref(0);
 // 获取订单列表
 const orderList = ref([]);
 const params = ref({
@@ -110,6 +119,7 @@ const params = ref({
 const getOrderList = async () => {
   const res = await getUserOrder(params.value);
   orderList.value = res.result.items;
+  // 存入总条数
   total.value = res.result.counts;
 };
 
@@ -117,6 +127,11 @@ onMounted(() => getOrderList());
 
 const tabChange = (type) => {
   params.value.orderState = type;
+  getOrderList();
+};
+// 页数切换
+const pageChange = (page) => {
+  params.value.page = page;
   getOrderList();
 };
 </script>

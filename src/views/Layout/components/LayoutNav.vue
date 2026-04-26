@@ -26,10 +26,10 @@
             </el-popconfirm>
           </li>
           <li>
-            <RouterLink to="/checkout">我的订单</RouterLink>
+            <RouterLink to="/member/order">我的订单</RouterLink>
           </li>
           <li>
-            <RouterLink to="/member">会员中心</RouterLink>
+            <RouterLink to="/member/user">会员中心</RouterLink>
           </li>
         </template>
         <template v-else>

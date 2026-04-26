@@ -58,9 +58,11 @@ const router = createRouter({
         {
           path: "member",
           component: Member,
+          // 总是把 /member 重定向到 member/user
+          redirect: "member/user",
           children: [
             {
-              path: "",
+              path: "user",
               component: UserInfo,
             },
             {

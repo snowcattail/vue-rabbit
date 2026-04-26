@@ -59,16 +59,31 @@
         <!-- 配送时间 -->
         <h3 class="box-title">配送时间</h3>
         <div class="box-body">
-          <a class="my-btn active" href="javascript:;">不限送货时间：周一至周日</a>
-          <a class="my-btn" href="javascript:;">工作日送货：周一至周五</a>
-          <a class="my-btn" href="javascript:;">双休日、假日送货：周六至周日</a>
+          <a
+            v-for="item in deliveryOptions"
+            :key="item.type"
+            class="my-btn"
+            :class="{ active: activeDeliveryType === item.type }"
+            @click="activeDeliveryType = item.type"
+            href="javascript:;"
+          >
+            {{ item.text }}
+          </a>
         </div>
         <!-- 支付方式 -->
         <h3 class="box-title">支付方式</h3>
         <div class="box-body">
-          <a class="my-btn active" href="javascript:;">在线支付</a>
-          <a class="my-btn" href="javascript:;">货到付款</a>
-          <span style="color: #999">货到付款需付5元手续费</span>
+          <a
+            v-for="item in payOptions"
+            :key="item.type"
+            class="my-btn"
+            :class="{ active: activePayType === item.type }"
+            @click="activePayType = item.type"
+            href="javascript:;"
+          >
+            {{ item.text }}
+          </a>
+          <span v-if="activePayType === 2" style="color: #999">货到付款需付5元手续费</span>
         </div>
         <!-- 金额明细 -->
         <h3 class="box-title">金额明细</h3>
@@ -102,9 +117,14 @@
   <!-- 切换地址 -->
   <el-dialog v-model="showDialog" title="切换收货地址" width="30%" center>
     <div class="addressWrapper">
+      <!-- 动态绑定样式 -->
+      <!-- <div
+              class="static"
+              :class="{ active: isActive }"
+            ></div> -->
       <div
         class="text item"
-        :class="`active: ${item.id === activeAddress.id}`"
+        :class="{ active: item.id === activeAddress.id }"
         @click="switchAddress(item)"
         v-for="item in checkInfo.userAddresses"
         :key="item.id"
@@ -118,6 +138,7 @@
         </ul>
       </div>
     </div>
+    <!-- 确认、取消按钮 -->
     <template #footer>
       <span class="dialog-footer">
         <el-button>取消</el-button>
@@ -139,6 +160,24 @@ const router = useRouter();
 
 const checkInfo = ref({}); // 订单对象
 const curAddress = ref({}); // 地址对象
+
+// 1. 配送时间选项数据与激活状态
+const deliveryOptions = [
+  { type: 1, text: "不限送货时间：周一至周日" },
+  { type: 2, text: "工作日送货：周一至周五" },
+  { type: 3, text: "双休日、假日送货：周六至周日" },
+];
+// 记录当前激活的配送时间类型，默认选中 1
+const activeDeliveryType = ref(1);
+
+// 2. 支付方式选项数据与激活状态
+const payOptions = [
+  { type: 1, text: "在线支付" },
+  { type: 2, text: "货到付款" },
+];
+// 记录当前激活的支付方式类型，默认选中 1
+const activePayType = ref(1);
+
 // 控制弹窗打开
 const showDialog = ref(false);
 // 切换地址
@@ -172,8 +211,8 @@ onMounted(() => {
 // 创建订单
 const createOrder = async () => {
   const res = await createOrderAPI({
-    deliveryTimeType: 1,
-    payType: 1,
+    deliveryTimeType: activeDeliveryType.value, // 原来是写死的 1，现在替换为动态选中的值
+    payType: activePayType.value, // 原来是写死的 1，现在替换为动态选中的值
     payChannel: 1,
     buyerMessage: "",
     goods: checkInfo.value.goods.map((item) => {

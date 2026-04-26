@@ -22,7 +22,7 @@ export const findNewCartListAPI = () => {
 // 删除购物车
 export const delCartAPI = (ids) => {
   return http({
-    url: "/member",
+    url: "/member/cart",
     method: "DELETE",
     data: {
       ids,

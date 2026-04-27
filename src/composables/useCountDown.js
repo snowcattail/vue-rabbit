@@ -1,11 +1,11 @@
-import { computed, onUnmounted } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import dayjs from "dayjs";
 
 export const useCountDown = () => {
   // 1. 响应式数据
   let timer = null;
   const time = ref(0);
-  // 格式化时间 为 xx 分 xx 秒
+  // 格式化时间 为xx分xx秒
   const formatTime = computed(() => {
     return dayjs.unix(time.value).format("mm分ss秒");
   });

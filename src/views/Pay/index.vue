@@ -43,16 +43,18 @@ import { getOrderAPI } from "@/apis/pay";
 import { useRoute } from "vue-router";
 import { useCountDown } from "@/composables/useCountDown";
 
-const { formatTime, start } = useCountDown;
+// const { formatTime, start } = useCountDown;  // 错误
+// 正确写法：调用函数后，获取返回值
+const { formatTime, start } = useCountDown();
 
-// 获取订单数据
 const route = useRoute();
 const payInfo = ref({});
+// 获取订单数据
 const getPayInfo = async () => {
   const res = await getOrderAPI(route.query.id);
   payInfo.value = res.result;
   // 初始化倒计时秒数
-  start(res.result.countdown);
+  start(payInfo.value.countdown);
 };
 
 onMounted(() => getPayInfo());

@@ -12,13 +12,13 @@ import "@/styles/common.scss";
 const app = createApp(App);
 const pinia = createPinia();
 
-app.use(createPinia());
+// 注册持久化插件
+pinia.use(piniaPluginPersistedstate);
+
+// 只安装一次 pinia
+app.use(pinia);
 app.use(router);
 app.use(lazyPlugin);
 app.use(componentPlugin);
-
-// 注册持久化插件
-pinia.use(piniaPluginPersistedstate);
-app.use(pinia);
 
 app.mount("#app");

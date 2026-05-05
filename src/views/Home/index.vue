@@ -8,7 +8,7 @@
   <HomeProduct />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HomeCategory from "./components/HomeCategory.vue";
 import HomeBanner from "./components/HomeBanner.vue";
 import HomeNew from "./components/HomeNew.vue";

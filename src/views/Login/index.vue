@@ -59,12 +59,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router"; // 需要加大括号
 import { ElMessage } from "element-plus";
 import { useUserStore } from "@/stores/user";
-import { loginAPI } from "@/apis/user.js";
 
 // 1. 准备表单对象
 const form = ref({

@@ -1,13 +1,15 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 import { getCategoryAPI } from "@/apis/layout";
+// 引入类型
+import type { ClassData } from "@/apis/models/layoutModel";
 
 export const useCategoryStore = defineStore("category", () => {
   // 导航列表数据管理
   // 获取分类信息，将返回的数据存储到 categoryList 数组
 
   // 导航列表数据（state）
-  const categoryList = ref([]);
+  const categoryList = ref([] as ClassData[]);
 
   // 获取导航数据的方法（action）
   const getCategory = async () => {

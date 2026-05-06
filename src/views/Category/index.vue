@@ -50,6 +50,7 @@ import GoodsItem from "../Home/components/GoodsItem.vue";
 const { bannerList } = useBanner();
 const { categoryData } = useCategory();
 </script>
+
 <style scoped lang="scss">
 .top-category {
   h3 {

@@ -24,7 +24,7 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeaderCart from "./HeaderCart.vue";
 
 import { useCategoryStore } from "@/stores/category";

@@ -2,7 +2,10 @@
   "recommendations": [
     "Vue.volar",
     "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "editorConfig.editorConfig",
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
     "oxc.oxc-vscode"
   ]
 }

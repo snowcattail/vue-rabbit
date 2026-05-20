@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 声明接收参数的类型
 defineProps({
   title: {

@@ -13,7 +13,7 @@
   <div></div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HomePanel from "./HomePanel.vue";
 import { findHotAPI } from "@/apis/home";
 import { ref, onMounted } from "vue";

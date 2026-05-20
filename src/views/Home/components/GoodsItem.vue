@@ -7,7 +7,7 @@
   </RouterLink>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
   good: {
     type: Object,

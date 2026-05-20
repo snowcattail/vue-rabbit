@@ -9,14 +9,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { getBannerAPI } from "@/apis/home";
+import type { BannerRequest, BannerResponse } from "@/apis/models/homeModel";
 import { onMounted, ref } from "vue";
 
-const bannerList = ref([]);
+const bannerList = ref([] as BannerResponse[]);
 
 const getBanner = async () => {
-  const res = await getBannerAPI();
+  const res = await getBannerAPI({ distributionSite: "1" } as BannerRequest);
+  // console.log(res);  // Result<BannerResponse[]>
   bannerList.value = res.result;
 };
 // getBanner(); // 执行 async 函数

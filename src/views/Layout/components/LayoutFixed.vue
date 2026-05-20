@@ -8,7 +8,9 @@
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li class="home" v-for="item in categoryList" :key="item.id">
-          <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${item.id}`">{{
+            item.name
+          }}</RouterLink>
         </li>
       </ul>
       <div class="right">
@@ -19,7 +21,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 注意是 @vueuse/core（@ 后没有 /）
 // 不要写成 @/vueuse/core
 import { useScroll } from "@vueuse/core";

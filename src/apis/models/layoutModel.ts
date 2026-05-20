@@ -1,4 +1,4 @@
-// 导航数据 classData 类型定义
+// 导航数据 ClassData 类型定义
 export interface ClassData {
   id: string;
   name: string;

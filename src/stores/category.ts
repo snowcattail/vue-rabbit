@@ -1,6 +1,6 @@
-import { ref } from "vue";
-import { defineStore } from "pinia";
 import { getCategoryAPI } from "@/apis/layout";
+import { defineStore } from "pinia";
+import { ref } from "vue";
 // 引入类型
 import type { ClassData } from "@/apis/models/layoutModel";
 
@@ -14,7 +14,7 @@ export const useCategoryStore = defineStore("category", () => {
   // 获取导航数据的方法（action）
   const getCategory = async () => {
     const res = await getCategoryAPI();
-    // console.log(res);
+    // console.log(res);  // Data<ClassData[]>
     categoryList.value = res.result;
   };
 

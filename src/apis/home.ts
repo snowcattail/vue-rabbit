@@ -19,7 +19,7 @@ export function getBannerAPI(params: BannerRequest): Result<BannerResponse[]> {
 /**
  * @description: 获取新鲜好物
  */
-export function findNewAPI() {
+export function findNewAPI(): Result<Good[]> {
   return http({
     url: "home/new",
   });

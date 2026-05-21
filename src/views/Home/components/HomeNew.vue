@@ -20,10 +20,11 @@ import HomePanel from "./HomePanel.vue";
 import { findNewAPI } from "@/apis/home";
 import { ref, onMounted } from "vue";
 
-const newList = ref([]);
+const newList = ref([] as Good[]);
 
 const getNewList = async () => {
   const res = await findNewAPI();
+  // console.log(res);  // Result<Good[]>
   newList.value = res.result;
 };
 

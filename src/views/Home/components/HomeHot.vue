@@ -23,7 +23,7 @@ const hotList = ref([] as HotListResponse[]);
 
 const getHotList = async () => {
   const res = await findHotAPI();
-  console.log(res); // Result<HotListResponse[]>
+  // console.log(res); // Result<HotListResponse[]>
   hotList.value = res.result;
 };
 

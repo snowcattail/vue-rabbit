@@ -21,15 +21,17 @@
 </template>
 
 <script setup lang="ts">
-import HomePanel from "./HomePanel.vue";
-import GoodsItem from "./GoodsItem.vue";
 import { getGoodsAPI } from "@/apis/home";
-import { ref, onMounted } from "vue";
+import type { GoodsListResponse } from "@/apis/models/homeModel";
+import { onMounted, ref } from "vue";
+import GoodsItem from "./GoodsItem.vue";
+import HomePanel from "./HomePanel.vue";
 
-const goodsProduct = ref([]);
+const goodsProduct = ref([] as GoodsListResponse[]);
 
 const getGoodList = async () => {
   const res = await getGoodsAPI();
+  // console.log(res);  // GoodsListResponse[]
   goodsProduct.value = res.result;
 };
 

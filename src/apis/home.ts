@@ -1,5 +1,5 @@
 import http from "@/utils/http";
-import type { BannerRequest, BannerResponse } from "./models/homeModel";
+import type { BannerRequest, BannerResponse, HotListResponse } from "./models/homeModel";
 
 /**
  * @description: 获取 banner 图
@@ -27,7 +27,7 @@ export function findNewAPI(): Result<Good[]> {
 /**
  * @description: 获取人气推荐
  */
-export function findHotAPI() {
+export function findHotAPI(): Result<HotListResponse[]> {
   return http({
     url: "home/hot",
   });

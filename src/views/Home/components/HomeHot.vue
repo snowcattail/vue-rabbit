@@ -16,12 +16,14 @@
 <script setup lang="ts">
 import HomePanel from "./HomePanel.vue";
 import { findHotAPI } from "@/apis/home";
+import type { HotListResponse } from "@/apis/models/homeModel";
 import { ref, onMounted } from "vue";
 
-const hotList = ref([]);
+const hotList = ref([] as HotListResponse[]);
 
 const getHotList = async () => {
   const res = await findHotAPI();
+  console.log(res); // Result<HotListResponse[]>
   hotList.value = res.result;
 };
 

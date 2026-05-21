@@ -10,3 +10,11 @@ export interface BannerResponse {
   imgUrl: string;
   type: string;
 }
+
+// HotList 响应
+export interface HotListResponse {
+  alt: string;
+  id: string;
+  picture: string;
+  title: string;
+}

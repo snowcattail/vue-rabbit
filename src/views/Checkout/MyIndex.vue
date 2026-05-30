@@ -149,7 +149,7 @@
   <!-- 添加地址 -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { getCheckInfoAPI, createOrderAPI } from "@/apis/checkout";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";

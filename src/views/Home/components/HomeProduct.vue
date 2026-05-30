@@ -31,7 +31,7 @@ const goodsProduct = ref([] as GoodsListResponse[]);
 
 const getGoodList = async () => {
   const res = await getGoodsAPI();
-  // console.log(res);  // GoodsListResponse[]
+  // console.log(res);  // Result<GoodsListResponse[]>
   goodsProduct.value = res.result;
 };
 

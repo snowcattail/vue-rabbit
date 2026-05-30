@@ -24,9 +24,9 @@
   </div>
 </template>
 
-<script setup>
-import { getCategoryFilterAPI, getSubCategoryAPI } from "@/apis/category.js";
-import { ref, onMounted } from "vue";
+<script setup lang="ts">
+import { getCategoryFilterAPI, getSubCategoryAPI } from "@/apis/category";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import GoodsItem from "../Home/components/GoodsItem.vue";
 

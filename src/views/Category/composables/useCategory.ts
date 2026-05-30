@@ -8,7 +8,7 @@ export function useCategory() {
   const route = useRoute();
   const getCategoryData = async (id: string) => {
     const res = await getCategoryAPI(id);
-    console.log(res);
+    // console.log(res);  // Result<Category>
     categoryData.value = res.result;
   };
 

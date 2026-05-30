@@ -115,16 +115,16 @@
   </div>
 </template>
 
-<script setup>
-import GoodHot from "@/views/Detail/components/DetailHot.vue";
-import XtxImageView from "@/components/XtxImageView/index.vue";
-import XtxSku from "@/components/XtxSku/index.vue";
+<script setup lang="ts">
+import XtxImageView from "@/components/XtxImageView/MyIndex.vue";
+import XtxSku from "@/components/XtxSku/MyIndex.vue";
+import GoodHot from "./components/DetailHot.vue";
 
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
-import { ElMessage } from "element-plus";
+import { getDetail } from "@/apis/detail";
 import { useCartStore } from "@/stores/cartStore";
-import { getDetail } from "@/apis/detail.js";
+import { ElMessage } from "element-plus";
+import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 const route = useRoute();
 const goods = ref({});

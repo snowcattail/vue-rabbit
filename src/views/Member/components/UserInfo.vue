@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useUserStore } from "@/stores/user";
 import { getLikeListAPI } from "@/apis/user";

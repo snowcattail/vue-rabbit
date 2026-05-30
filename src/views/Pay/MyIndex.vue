@@ -37,7 +37,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { getOrderAPI } from "@/apis/pay";
 import { useRoute } from "vue-router";

@@ -1,11 +1,15 @@
 import http from "@/utils/http";
+import type { Category } from "./models/categoryModel";
 
 /**
  * @description: 获取分类数据 /category?id=10020
  * @param {*} id 分类id
  * @return {*}
  */
-export const getCategoryAPI = (id) => {
+// 注：接口数据的 result 类型是 Object
+// 所以类型定义是 Result<Category>
+// 不要错写成 Result<Category[]>
+export const getCategoryAPI = (id: string): Result<Category> => {
   return http({
     url: "/category",
     params: {

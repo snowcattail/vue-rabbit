@@ -43,9 +43,9 @@
 </template>
 
 <script setup lang="ts">
-import { useBanner } from "@/views/Category/composables/useBanner.js";
-import { useCategory } from "@/views/Category/composables/useCategory";
 import GoodsItem from "../Home/components/GoodsItem.vue";
+import { useBanner } from "./composables/useBanner.ts";
+import { useCategory } from "./composables/useCategory.ts";
 
 const { bannerList } = useBanner();
 const { categoryData } = useCategory();

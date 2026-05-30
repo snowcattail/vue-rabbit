@@ -1,8 +1,9 @@
-import { ref, onMounted } from "vue";
-import { getBannerAPI } from "@/apis/home.js";
+import { getBannerAPI } from "@/apis/home";
+import type { BannerResponse } from "@/apis/models/homeModel";
+import { onMounted, ref } from "vue";
 
 export function useBanner() {
-  const bannerList = ref([]);
+  const bannerList = ref([] as BannerResponse[]);
 
   const getBanner = async () => {
     const res = await getBannerAPI({

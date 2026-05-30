@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Login from "@/views/Login/index.vue";
-import Layout from "@/views/Layout/index.vue";
-import Home from "@/views/Home/index.vue";
-import Category from "@/views/Category/index.vue";
+import Login from "@/views/Login/MyIndex.vue";
+import Layout from "@/views/Layout/MyIndex.vue";
+import Home from "@/views/Home/MyIndex.vue";
+import Category from "@/views/Category/MyIndex.vue";
 import SubCategory from "@/views/SubCategory/index.vue";
 import Detail from "@/views/Detail/index.vue";
 import CartList from "@/views/CartList/index.vue";

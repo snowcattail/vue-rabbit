@@ -1,5 +1,5 @@
 import http from "@/utils/http";
-import type { Category } from "./models/categoryModel";
+import type { Category, CategoryChild } from "./models/categoryModel";
 
 /**
  * @description: 获取分类数据 /category?id=10020
@@ -23,7 +23,7 @@ export const getCategoryAPI = (id: string): Result<Category> => {
  * @param {*} id 分类id
  * @return {*}
  */
-export const getCategoryFilterAPI = (id) => {
+export const getCategoryFilterAPI = (id: string): Result<CategoryChild> => {
   return http({
     url: "/category/sub/filter",
     params: {

@@ -8,13 +8,46 @@ export interface Category {
 
 // 二级分类下属分类数组 CategoryChild 类型定义
 export interface CategoryChild {
-  brands: null;
-  categories: null;
+  brands: Brands[];
+  categories: Categories[];
   goods: Good[];
   id: string;
   name: string;
-  parentId: null;
-  parentName: null;
+  parentId: string;
+  parentName: string;
   picture: string;
-  saleProperties: null;
+  saleProperties: SaleProperties[];
+}
+
+// Brands 类型定义
+export interface Brands {
+  desc: string;
+  id: string;
+  logo: string;
+  name: string;
+  nameEn: string;
+  picture: string;
+  place: string;
+  type: null;
+}
+
+// Categories 类型定义
+export interface Categories {
+  id: string;
+  layer: number;
+  name: string;
+  parent: null;
+}
+
+// SaleProperties 类型定义
+export interface SaleProperties {
+  id: string;
+  name: string;
+  properties: Properties[];
+}
+
+// Properties 类型定义
+export interface Properties {
+  id: string;
+  name: string;
 }

@@ -26,15 +26,17 @@
 
 <script setup lang="ts">
 import { getCategoryFilterAPI, getSubCategoryAPI } from "@/apis/category";
+import type { CategoryChild } from "@/apis/models/categoryModel";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import GoodsItem from "../Home/components/GoodsItem.vue";
 
 const route = useRoute();
 
-const categoryData = ref({});
+const categoryData = ref({} as CategoryChild);
 const getCategoryData = async () => {
-  const res = await getCategoryFilterAPI(route.params.id);
+  const res = await getCategoryFilterAPI(route.params.id as string);
+  // console.log(res); // Result<CategoryChild>
   categoryData.value = res.result;
 };
 

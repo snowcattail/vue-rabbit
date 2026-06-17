@@ -19,7 +19,7 @@ export interface CategoryChild {
   saleProperties: SaleProperties[];
 }
 
-// Brands 类型定义
+// 三级分类 Brands 类型定义
 export interface Brands {
   desc: string;
   id: string;
@@ -31,7 +31,7 @@ export interface Brands {
   type: null;
 }
 
-// Categories 类型定义
+// 三级分类 Categories 类型定义
 export interface Categories {
   id: string;
   layer: number;
@@ -39,15 +39,32 @@ export interface Categories {
   parent: null;
 }
 
-// SaleProperties 类型定义
+// 三级分类 SaleProperties 类型定义
 export interface SaleProperties {
   id: string;
   name: string;
   properties: Properties[];
 }
 
-// Properties 类型定义
+// 四级分类 Properties 类型定义
 export interface Properties {
   id: string;
   name: string;
+}
+
+// 导航数据 NavigationDataRequest 类型定义
+export interface NavigationDataRequest {
+  categoryId: string;
+  page: number;
+  pageSize: number;
+  sortField: string;
+}
+
+// 获取二级分类下导航商品数据
+export interface NavigationGoodList {
+  count: number;
+  items: Good[];
+  page: number;
+  pageSize: number;
+  pages: number;
 }

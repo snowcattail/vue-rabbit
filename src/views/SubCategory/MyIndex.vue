@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { getCategoryFilterAPI, getSubCategoryAPI } from "@/apis/category";
-import type { CategoryChild } from "@/apis/models/categoryModel";
+import type { CategoryChild, NavigationDataRequest } from "@/apis/models/categoryModel";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import GoodsItem from "../Home/components/GoodsItem.vue";
@@ -42,18 +42,19 @@ const getCategoryData = async () => {
 
 onMounted(() => getCategoryData());
 
+// 接口返回错误，待学习
 // 获取基本列表数据
-const goodList = ref([]);
+const goodList = ref([] as Good[]);
 const reqData = ref({
   categoryId: route.params.id,
   page: 1,
   pageSize: 20,
   sortField: "publishTime",
-});
+} as NavigationDataRequest);
 
 const getGoodList = async () => {
   const res = await getSubCategoryAPI(reqData.value);
-  // console.log(res);
+  // console.log(res); // Result<NavigationGoodList>
   goodList.value = res.result.items;
 };
 

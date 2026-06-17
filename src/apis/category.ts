@@ -1,5 +1,10 @@
 import http from "@/utils/http";
-import type { Category, CategoryChild } from "./models/categoryModel";
+import type {
+  Category,
+  CategoryChild,
+  NavigationDataRequest,
+  NavigationGoodList,
+} from "./models/categoryModel";
 
 /**
  * @description: 获取分类数据 /category?id=10020
@@ -42,7 +47,7 @@ export const getCategoryFilterAPI = (id: string): Result<CategoryChild> => {
     }
  * @return {*}
 */
-export const getSubCategoryAPI = (data) => {
+export const getSubCategoryAPI = (data: NavigationDataRequest): Result<NavigationGoodList> => {
   // 注意是返回 http
   // 文档里写的 request 是错误的
   return http({

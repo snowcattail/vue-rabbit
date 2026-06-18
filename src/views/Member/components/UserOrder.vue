@@ -92,8 +92,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 import { getUserOrder } from "@/apis/order";
+import { onMounted, ref } from "vue";
 
 // tab 列表
 const tabTypes = [
@@ -162,9 +162,10 @@ const formatPayState = (payState) => {
 
     .holder-container {
       min-height: 500px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+      display: flex; // flex 布局
+      justify-content: center; // 水平居中
+      align-items: center; // 垂直居中
     }
   }
 }

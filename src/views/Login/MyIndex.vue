@@ -60,10 +60,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { useRouter } from "vue-router"; // 需要加大括号
-import { ElMessage } from "element-plus";
 import { useUserStore } from "@/stores/user";
+import { ElMessage } from "element-plus";
+import { reactive, ref } from "vue";
+import { useRouter } from "vue-router"; // 需要加大括号
 
 // 1. 准备表单对象
 const form = ref({
@@ -332,11 +332,13 @@ const doLogin = () => {
     }
   }
 
+  // 两端对齐 + 自适应
   .action {
     padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    display: flex; // flex 布局
+    justify-content: space-between; // 两端对齐
+    align-items: center; // 垂直居中
 
     .url {
       a {

@@ -106,6 +106,7 @@ const cartStore = useCartStore();
       box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.1);
     }
 
+    // 两端对齐 + 自适应
     .foot {
       position: absolute;
       left: 0;
@@ -113,10 +114,13 @@ const cartStore = useCartStore();
       height: 70px;
       width: 100%;
       padding: 10px;
-      display: flex;
-      justify-content: space-between;
+
+      // 针对 foot 内的内容
+      display: flex; // flex 布局
+      justify-content: space-between; // 两端对齐（主轴 <-> 横）
+      align-items: center; // 垂直居中（交叉轴 <-> 竖）
+
       background: #f8f8f8;
-      align-items: center;
 
       .total {
         padding-left: 10px;

@@ -196,14 +196,18 @@ const allCheck = (selected) => {
     }
   }
 
+  // 两端对齐 + 自适应
   .action {
-    display: flex;
     background: #fff;
     margin-top: 20px;
     height: 80px;
-    align-items: center;
     font-size: 16px;
-    justify-content: space-between;
+
+    // 针对 action 内的内容
+    display: flex; // flex 布局
+    justify-content: space-between; // 两端对齐（主轴 <-> 横）
+    align-items: center; // 垂直居中（交叉轴 <-> 竖）
+
     padding: 0 30px;
 
     .xtx-checkbox {
